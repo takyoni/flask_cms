@@ -1,0 +1,28 @@
+version: '3.5'
+
+services:
+  postgres:
+    image: postgres:9.3
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+  flask:
+    build: .
+    environment:
+      DBUSER: postgres
+      DBPASS: postgres
+      DBHOST: postgres
+      DBNAME: postgres
+    ports:
+      - "5000:5000"
+    networks:
+      - postgres
+    restart: unless-stopped
+networks:
+  postgres:
+    driver: bridge
