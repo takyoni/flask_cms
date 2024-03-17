@@ -4,9 +4,11 @@ platforms: python
 author: cephalin
 ---
 
-```pip install -r requirements.txt```
-```cd app```
-```flask db upgrade && flask run -h 0.0.0.0 -p 5000```
+```
+pip install -r requirements.txt
+cd app
+flask db upgrade && flask run -h 0.0.0.0 -p 5000
+```
 Логи сохраняются в app/record.log
 Tested on python 3.8.3
 # Config
